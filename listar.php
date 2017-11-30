@@ -24,12 +24,17 @@
 </head>
 
 <body>
-@@ -33,35 +32,31 @@
+<?php //session_start(); 
+ require "cfg/conexion.php";
+ 
+ 
+ 
+    $query="select * from SALA_REMOTA";
 
    $resultado=mysql_query($query);
    echo "<div class='container'>";
    echo "<table class='table table-striped'>";
-   echo "<th> Nombre de Sala</th> <th>Respondable de Sala</th> <th>Telefono</th> <th>E-Mail</th> <th>IP</th>  <th>Editar</th> <th>Eliminar</th>";
+   echo "<th> Nombre de Sala</th> <th>Respondable de Sala</th> <th>Telefono</th> <th>E-Mail</th> <th>IP</th> <th>Servicios</th> <th>Editar</th> <th>Eliminar</th>";
    while ($dato=mysql_fetch_array($resultado)) {
    
    echo "<tr>";  
@@ -38,7 +43,7 @@
    echo "<td>". $dato['telefono']."</td>";
    echo "<td>". $dato ['email_responsable']."</td>";
    echo "<td>". $dato ['ip']."</td>";
-   
+   echo "<td>". $dato ['servicios']."</td>";
    echo "<td><a href='editarSala.php?id=". $dato ['id_sala_remota']."'>Editar</a></td>";
    echo "<td><a href='eliminarSala.php?id=". $dato ['id_sala_remota']."'>Eliminar</a></td>";
    echo "</tr>";

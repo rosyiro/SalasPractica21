@@ -9,17 +9,17 @@ if (isset($_GET["nom"])) {
     $telefono = $_GET["tel"];
     $email = $_GET["mail"];
     $ip = $_GET["ip"];
-    
+    $servicios = $_GET["serv"];
     
     
     
     // Hay campos en blanco
-    if($name==NULL|$responsable==NULL|$telefono==NULL|$email==NULL|$ip==NULL) {
+    if($name==NULL|$responsable==NULL|$telefono==NULL|$email==NULL|$ip==NULL|$servicios==NULL) {
         echo "un campo est&aacute; vacio.";
         formRegistro();
     }else{
 
-                $query = 'INSERT INTO SALA_REMOTA (nombre ,responsable, telefono, email_responsable, ip) VALUES ("'.$name.'","'.$responsable.'","'.$telefono.'","'.$email.'","'.$ip.'")';
+                $query = 'INSERT INTO SALA_REMOTA (nombre ,responsable, telefono, email_responsable, ip, servicios) VALUES ("'.$name.'","'.$responsable.'","'.$telefono.'","'.$email.'","'.$ip.'","'.$servicios.'")';
                 mysql_query($query) or die(mysql_error());
                 echo 'La sala '.$name.' ha sido registrada de manera satisfactoria.<br/>';
    header('Location: listar.php');
